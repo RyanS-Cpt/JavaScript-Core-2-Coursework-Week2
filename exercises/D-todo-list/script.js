@@ -7,16 +7,16 @@ function todoList(todosArr) {
   content.appendChild(list);
   list.appendChild(listItm);
   listItm.textContent = todosArr[task].todo;
-  function strike(){ 
+  console.log(listItm.style.textDecoration);
+  function strike(){
+    if(listItm.style.textDecoration !== "line-through"){
     listItm.style.textDecoration = "line-through";
+  }else if(listItm.style.textDecoration === "line-through"){
+  listItm.style.textDecoration = "none";
+  }
   }
   listItm.addEventListener("click", strike);
-   listItm.removeEventListener("click", strike);
-
-  }
-  // function revert(){
-  //   listItm.style.textDecoration = !"line-through";
-  // }
+}
 }
 
 const todos = [
