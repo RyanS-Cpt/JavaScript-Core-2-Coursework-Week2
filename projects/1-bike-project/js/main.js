@@ -1,3 +1,4 @@
+//Part 1:
 let jumboTag = document.getElementsByClassName("jumbotron");
 let targetBtns = document.querySelectorAll(".buttons a");
 // console.log(targetBtns);
@@ -22,3 +23,20 @@ greenBtn.addEventListener("click", ()=>{
     targetBtns[0].style.backgroundColor = "black";
     targetBtns[1].style.backgroundColor = "#8c9c08"; 
 });
+//Part 2:
+let emailInp = document.getElementById("exampleInputEmail1");
+let nameInp = document.getElementById("example-text-input");
+let textArea = document.getElementById("exampleTextarea");
+let submitBtn = document.querySelector("form .btn");
+// console.log(submitBtn);
+// console.log(emailInp.value.length);
+// emailInp.setAttribute("required", "true");
+submitBtn.addEventListener("click", (event)=>{
+    event.preventDefault();
+    if (emailInp.value.length > 0 && emailInp.value.includes("@") && nameInp.value.length >0 && textArea.value.length >0){
+        alert("Thank you for filling out the form");
+        emailInp.innerHTML = ". ";
+        nameInp.innerText = "- ";
+        textArea.textContent = " ";
+    }
+})
