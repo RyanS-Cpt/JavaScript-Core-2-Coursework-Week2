@@ -5,11 +5,24 @@ function highlightWords(paragraphStr, colourArr) {
   content.appendChild(selectEl);
   content.appendChild(parEl);
   let paraArr = paragraphStr.split(" ");
-  console.log(paraArr);
-  for (let color of colourArr){
+
+  for (let colour of colourArr){
     let optionEl = document.createElement("option");
     selectEl.appendChild(optionEl);
-    optionEl.innerHTML = color;
+    optionEl.innerHTML = colour;
+  }
+  
+  for (word of paraArr){
+    let spanEl = document.createElement("span");
+    parEl.appendChild(spanEl);
+    spanEl.innerText = " " + word;
+    spanEl.addEventListener("click", ()=>{
+      if(selectEl.value !== "none"){
+      spanEl.style.backgroundColor = selectEl.value;
+      }else if (selectEl.value === "none"){
+        spanEl.style.removeProperty("background-color");
+      }
+    } );
   }
 }
 
