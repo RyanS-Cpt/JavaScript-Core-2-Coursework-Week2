@@ -1,5 +1,29 @@
-function populateTodoList(todos) {
+function populateTodoList(todosArr) {
   let list = document.getElementById("todo-list");
+  for (let toDo of todosArr){
+  let newToDo = document.createElement("li");
+   list.appendChild(newToDo);
+    newToDo.textContent = toDo.task;
+    newToDo.className = "list-group-item d-flex justify-content-between align-items-center";
+    let liSPan = document.createElement("span");
+    newToDo.appendChild(liSPan);
+    liSPan.className = "badge bg-primary rounded-pill";
+    let iOne = document.createElement("i");
+    let iTwo = document.createElement("i");
+    liSPan.appendChild(iOne);
+    liSPan.appendChild(iTwo);
+    iOne.className = "fa fa-check";
+    iTwo.className = "fa fa-trash";
+    iOne.setAttribute("aria-hidden","true");
+    iTwo.setAttribute("aria-hidden","true");
+    iOne.addEventListener("click", ()=>{
+      newToDo.style.textDecoration = "line-through";
+    });
+    iTwo.addEventListener("click", ()=>{
+      list.removeChild(newToDo);
+    });
+  }
+
   // Write your code to create todo list elements with completed and delete buttons here, all todos should display inside the "todo-list" element.
 }
 
@@ -19,7 +43,7 @@ function addNewTodo(event) {
   // Write your code here... and remember to reset the input field to be blank after creating a todo!
 }
 
-// Advanced challenge: Write a fucntion that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
+// Advanced challenge: Write a function that checks the todos in the todo list and deletes the completed ones (we can check which ones are completed by seeing if they have the line-through styling applied or not).
 function deleteAllCompletedTodos() {
   // Write your code here...
 }
