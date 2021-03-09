@@ -35,8 +35,8 @@ submitBtn.addEventListener("click", (event)=>{
     event.preventDefault();
     if (emailInp.value.length > 0 && emailInp.value.includes("@") && nameInp.value.length >0 && textArea.value.length >0){
         alert("Thank you for filling out the form");
-        emailInp.innerHTML = ". ";
-        nameInp.innerText = "- ";
-        textArea.textContent = " ";
+        emailInp.value = " ";
+        nameInp.value = " ";
+        textArea.value = " ";
     }
 })
